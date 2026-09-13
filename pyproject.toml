@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tryworks"
-version = "0.1.1"
+version = "0.1.2"
 description = "Partition documents into LLM-ready elements. The call path of unstructured, with zero required dependencies."
 readme = "README.md"
 license = "Apache-2.0"
@@ -23,6 +23,12 @@ dependencies = []
 [project.optional-dependencies]
 pdf = ["pypdfium2>=4.30"]
 dev = ["pytest>=8", "python-docx>=1.1", "python-pptx>=1.0", "openpyxl>=3.1", "pypdfium2>=4.30"]
+
+[project.urls]
+Homepage = "https://github.com/ezzcodeezzlife/tryworks"
+Source = "https://github.com/ezzcodeezzlife/tryworks"
+Issues = "https://github.com/ezzcodeezzlife/tryworks/issues"
+Changelog = "https://github.com/ezzcodeezzlife/tryworks/blob/main/CHANGELOG.md"
 
 [project.scripts]
 tryworks = "tryworks.__main__:main"

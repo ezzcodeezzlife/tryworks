@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Package metadata: added source, issues and changelog links shown on PyPI. No code changes.
+
 ## 0.1.1
 
 - README: removed the "How this was built" section. No code changes.
