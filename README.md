@@ -233,13 +233,6 @@ python -m pytest
 See [CONTRIBUTING.md](CONTRIBUTING.md). The one hard rule: the base install stays
 dependency-free.
 
-## How this was built
-
-tryworks was written with [Claude Code](https://claude.com/claude-code) under human direction. It
-is an independent implementation of unstructured's public API; no unstructured source code was
-copied. Confidence in it comes from things you can check yourself: the test suite, which runs on
-Linux, macOS and Windows, and the differential comparison against unstructured above.
-
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). tryworks is not affiliated with or
