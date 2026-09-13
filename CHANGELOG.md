@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- README: removed the "How this was built" section. No code changes.
+
 ## 0.1.0
 
 First release.

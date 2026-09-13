@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tryworks"
-version = "0.1.0"
+version = "0.1.1"
 description = "Partition documents into LLM-ready elements. The call path of unstructured, with zero required dependencies."
 readme = "README.md"
 license = "Apache-2.0"
