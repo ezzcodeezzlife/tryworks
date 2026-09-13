@@ -1,0 +1,45 @@
+name: Upstream compatibility
+
+# Partition the generated corpus with the latest unstructured release and with tryworks, then
+# publish the comparison. Runs weekly so upstream behavior changes show up as a diff.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Install tryworks
+        run: |
+          uv venv .venv-tryworks
+          uv pip install --python .venv-tryworks/bin/python -e ".[dev]"
+
+      - name: Install unstructured
+        run: |
+          uv venv .venv-upstream
+          uv pip install --python .venv-upstream/bin/python --torch-backend cpu "unstructured[docx,pptx,xlsx,md,csv,pdf]"
+
+      - name: Build corpus and compare
+        run: |
+          .venv-tryworks/bin/python tests/corpus.py compat/out/corpus
+          .venv-upstream/bin/python scripts/compat.py dump unstructured compat/out/corpus compat/out/upstream.json
+          .venv-tryworks/bin/python scripts/compat.py dump tryworks compat/out/corpus compat/out/tryworks.json
+          .venv-tryworks/bin/python scripts/compat.py compare compat/out/upstream.json compat/out/tryworks.json \
+            --markdown compat/out/REPORT.md --summary compat/out/summary.json
+          cat compat/out/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: compat-report
+          path: compat/out/*.json

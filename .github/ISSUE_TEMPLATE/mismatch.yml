@@ -1,0 +1,34 @@
+name: Output differs from unstructured
+description: tryworks and unstructured produce different elements for the same document
+labels: [compatibility]
+body:
+  - type: textarea
+    id: document
+    attributes:
+      label: Document
+      description: Attach the document or a minimal file that reproduces the difference. Remove anything confidential.
+    validations:
+      required: true
+  - type: textarea
+    id: call
+    attributes:
+      label: Call
+      description: The partition call you made, with arguments.
+      render: python
+      placeholder: partition(filename="report.docx")
+    validations:
+      required: true
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Both outputs
+      description: The relevant elements from each library, e.g. from `elements_to_json(...)`.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: tryworks 0.1.0, unstructured 0.27.5, Python 3.12, Ubuntu 24.04
+    validations:
+      required: true

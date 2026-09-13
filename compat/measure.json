@@ -1,0 +1,141 @@
+[
+ {
+  "requirement": "unstructured[docx,pptx,xlsx,md,csv,pdf]",
+  "packages": 149,
+  "download_mb": 3256.7,
+  "largest": [
+   {
+    "package": "torch",
+    "mb": 528.9
+   },
+   {
+    "package": "nvidia-cudnn-cu13",
+    "mb": 527.5
+   },
+   {
+    "package": "nvidia-cublas",
+    "mb": 403.5
+   },
+   {
+    "package": "triton",
+    "mb": 236.5
+   },
+   {
+    "package": "nvidia-nccl-cu13",
+    "mb": 206.0
+   }
+  ],
+  "open_advisories": 0,
+  "historical_advisories": 701,
+  "most_historical": [
+   [
+    "pillow",
+    153
+   ],
+   [
+    "pypdf",
+    85
+   ],
+   [
+    "opencv-python",
+    62
+   ],
+   [
+    "transformers",
+    54
+   ],
+   [
+    "torch",
+    43
+   ]
+  ]
+ },
+ {
+  "requirement": "unstructured",
+  "packages": 71,
+  "download_mb": 152.4,
+  "largest": [
+   {
+    "package": "llvmlite",
+    "mb": 57.1
+   },
+   {
+    "package": "spacy",
+    "mb": 33.9
+   },
+   {
+    "package": "numpy",
+    "mb": 15.9
+   },
+   {
+    "package": "blis",
+    "mb": 10.8
+   },
+   {
+    "package": "lxml",
+    "mb": 4.9
+   }
+  ],
+  "open_advisories": 0,
+  "historical_advisories": 256,
+  "most_historical": [
+   [
+    "pypdf",
+    85
+   ],
+   [
+    "urllib3",
+    38
+   ],
+   [
+    "jinja2",
+    20
+   ],
+   [
+    "numpy",
+    16
+   ],
+   [
+    "requests",
+    16
+   ]
+  ]
+ },
+ {
+  "requirement": "tryworks[pdf] @ .",
+  "packages": 2,
+  "download_mb": 3.6,
+  "largest": [
+   {
+    "package": "pypdfium2",
+    "mb": 3.6
+   },
+   {
+    "package": "tryworks",
+    "mb": 0.1
+   }
+  ],
+  "open_advisories": 0,
+  "historical_advisories": 0,
+  "most_historical": [
+   [
+    "pypdfium2",
+    0
+   ]
+  ]
+ },
+ {
+  "requirement": "tryworks @ .",
+  "packages": 1,
+  "download_mb": 0.1,
+  "largest": [
+   {
+    "package": "tryworks",
+    "mb": 0.1
+   }
+  ],
+  "open_advisories": 0,
+  "historical_advisories": 0,
+  "most_historical": []
+ }
+]

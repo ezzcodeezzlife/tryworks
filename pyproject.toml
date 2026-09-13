@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tryworks"
+version = "0.1.0"
+description = "Partition documents into LLM-ready elements. The call path of unstructured, with zero required dependencies."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.10"
+keywords = ["document parsing", "rag", "llm", "pdf", "docx", "chunking", "unstructured"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Text Processing",
+]
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pypdfium2>=4.30"]
+dev = ["pytest>=8", "python-docx>=1.1", "python-pptx>=1.0", "openpyxl>=3.1", "pypdfium2>=4.30"]
+
+[project.scripts]
+tryworks = "tryworks.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tryworks"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/tryworks", "tests", "scripts", "LICENSE", "NOTICE", "README.md"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "SIM"]
+ignore = [
+    "E501",    # long lines in data tables, fixtures and messages
+    "B006",    # mutable defaults kept where unstructured's signatures use them
+    "B024",    # Element is an ABC without abstract methods, as in unstructured
+    "B905",    # zip over deliberately offset slices
+    "SIM102", "SIM103", "SIM105", "SIM108", "SIM114",
+    "SIM905",  # word lists are clearer as split strings
+    "UP006", "UP007", "UP035", "UP045",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+python_classes = ["Test*", "Describe*"]
+python_functions = ["test_*", "it_*"]
+filterwarnings = ["error::DeprecationWarning:tryworks.*"]
